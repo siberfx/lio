@@ -11,7 +11,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
 use Psr\Log\LoggerInterface;
 
-class ReSmushOptimizer implements Optimizer, HasConfig
+class ReSmushOptimizer implements HasConfig, Optimizer
 {
     public const ENDPOINT = 'api.resmush.it/ws.php';
 
@@ -81,9 +81,9 @@ class ReSmushOptimizer implements Optimizer, HasConfig
 
         return rescue(
             fn () => Http::attach('files', $file, basename($this->imagePath))
-                                   ->timeout($this->timeout)
-                                   ->retry($this->getRetry())
-                                   ->post(self::ENDPOINT.'?'.$params),
+                ->timeout($this->timeout)
+                ->retry($this->getRetry())
+                ->post(self::ENDPOINT.'?'.$params),
             fn ($e) => $e instanceof RequestException ? $e->response : null
         );
     }

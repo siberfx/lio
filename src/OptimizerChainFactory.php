@@ -85,11 +85,6 @@ class OptimizerChainFactory
         return $factory->disk($disk);
     }
 
-    /**
-     * @param  mixed  $key
-     * @param  mixed  $value
-     * @return array
-     */
     private static function getOptimizerAndOptions(mixed $key, mixed $value): array
     {
         $options = [];
@@ -132,8 +127,6 @@ class OptimizerChainFactory
 
     /**
      * @param  class-string<Optimizer>  $optimizerClass
-     * @param  array  $options
-     * @return Optimizer
      *
      * @throws BindingResolutionException
      */

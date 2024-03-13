@@ -14,11 +14,6 @@ class TempLocalImage implements Image
     ) {
     }
 
-    /**
-     * @param  string  $content
-     * @param  string|null  $filename
-     * @return TempLocalImage
-     */
     public static function make(string $content, ?string $filename = null): TempLocalImage
     {
         $filename ??= Str::random();

@@ -12,13 +12,13 @@ final class InvalidConfiguration extends Exception
     {
         $optimizerInterface = Optimizer::class;
 
-        return new static("Configured optimizer `{$class}` does not implement `{$optimizerInterface}`.");
+        return new self("Configured optimizer `{$class}` does not implement `{$optimizerInterface}`.");
     }
 
     public static function notAnLogger(string $class)
     {
         $loggerInterface = LoggerInterface::class;
 
-        return new static("Configured optimizer `{$class}` does not implement `{$loggerInterface}`.");
+        return new self("Configured optimizer `{$class}` does not implement `{$loggerInterface}`.");
     }
 }

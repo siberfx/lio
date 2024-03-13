@@ -26,8 +26,8 @@ it('can decrease size of a file', function ($filename, $tempFilename, $optimizer
     decreasedFilesystemFileSize($optimizedFilename, $filename);
     $logger = $optimizerChain->getLogger();
     expect($logger)->toBeInstanceOf(ArrayLogger::class)
-                   ->getAllLinesAsString()
-                   ->toContain($optimizerName)
+        ->getAllLinesAsString()
+        ->toContain($optimizerName)
         ->not
         ->toContain($doesntFindOptimizer);
 })->with([
@@ -72,8 +72,8 @@ it('can decrease size of a png file with resmush', function () {
     $optimizerChain->optimize('test.png', 'opt-test.png');
     $logger = $optimizerChain->getLogger();
     expect($logger)->toBeInstanceOf(ArrayLogger::class)
-                   ->getAllLinesAsString()
-                   ->toContain('reSmush')
+        ->getAllLinesAsString()
+        ->toContain('reSmush')
         ->not
         ->toContain('jpegoptim');
 });
